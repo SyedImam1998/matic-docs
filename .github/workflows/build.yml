@@ -1,31 +1,25 @@
 name: Doc build
 
 on:
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
-    paths:
-      - 'docs/**'
-      - 'i18n/**'
 
 jobs:
   build:
-    strategy:
-      matrix:
-        locale: ['en', 'ko', 'de', 'es', 'fr', 'it', 'ja', 'pt', 'br', 'hi', 'id', 'ru', 'th', 'tl']
 
     runs-on: ubuntu-latest-8-cores
 
-    env:
-      CI: true
-      NODE_OPTIONS: --max-old-space-size=16384
-      DOCUSAURUS_SSR_CONCURRENCY: 5
-
     steps:
+      # Checkout the code
       - uses: actions/checkout@v2
+      # Setup node with version 12.x and NPM registry url
       - uses: actions/setup-node@v3
         with:
           node-version: "16.14.1"
           cache: 'npm'
+      # Cache Docusaurus artifacts for faster build times
       - name: Cache Docusaurus artifacts
         id: cache-docusaurus
         uses: actions/cache@v3
@@ -38,6 +32,7 @@ jobs:
         name: State of Docusaurus cache
         continue-on-error: true
         run: echo "Docusaurus cache miss, resulting build will be slower"
+      # Cache node_modules for faster build times
       - name: Cache node_modules
         id: cache-node-modules
         env:
@@ -50,5 +45,8 @@ jobs:
         name: State of node_modules cache
         continue-on-error: true
         run: echo "Package dependencies changed, unable to use node_modules cache"
+      # Run npm install to install project packages
       - run: yarn install --frozen-lockfile
-      - run: yarn build --locale ${{ matrix.locale }}
+      # npm run build to build the project
+      - run: yarn build
+      # publish the files to NPM
