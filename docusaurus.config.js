@@ -466,7 +466,7 @@ module.exports = {
                     rel: null,
                   },
                   {
-                    href: 'https://zkevm.polygon.technology/develop',
+                    href: 'https://zkevm.polygon.technology/docs/develop',
                     label: 'Build on zkEVM',
                     target: '_self',
                     rel: null,
