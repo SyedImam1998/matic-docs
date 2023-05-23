@@ -125,3 +125,23 @@ sudo service heimdalld start
 # wait for heimdall to fully sync then start bor
 sudo service bor start
 ```
+
+## Recommended disk size guidance
+
+**MUMBAI:**
+
+| metric | calculation breakdown | value |
+| ------ | --------------------- | ----------- |
+| approx. compressed total | 250 GB (bor) + 35 GB (heimdall) | 285 GB |
+| approx. data growth daily | 10 GB (bor) + .5 GB (heimdall) | 10.5 GB |
+| approx. total extracted size | 350 GB (bor) + 50 GB (heimdall) | 400 GB |
+| suggested disk size (2.5x buffer) | 400 GB * 2.5 (natural chain growth) | 1 TB | 
+
+**MAINNET:**
+
+| metric | calculation breakdown | value |
+| ------ | --------------------- | ----------- |
+| approx. compressed total | 1500 GB (bor) + 225 GB (heimdall) | 1725 GB |
+| approx. data growth daily | 100 GB (bor) + 5 GB (heimdall) | 105 GB |
+| approx. total extracted size | 2.1 TB (bor) + 300 GB (heimdall) | 2.4 TB |
+| suggested disk size (2.5x buffer) | 2.4 TB * 2.5 (natural chain growth) | 6 TB |
