@@ -216,7 +216,7 @@ In the demo, the requestor does not require an additional bond from the price pr
   yarn truffle migrate --reset --network test
   ```
 
-1. To deploy the `OptimisticDepositBox` [contract](https://github.com/UMAprotocol/protocol/blob/master/packages/core/contracts/financial-templates/demo/OptimisticDepositBox.sol) and go through a simple user flow, run the following demo script from the root of the repo:
+1. To deploy the `OptimisticDepositBox` [contract](https://github.com/UMAprotocol/dev-quickstart/blob/main/contracts/OptimisticDepositBox.sol) and go through a simple user flow, run the following demo script from the root of the repo:
 
 ```bash
 yarn truffle exec ./packages/core/scripts/demo/OptimisticDepositBox.js --network test
