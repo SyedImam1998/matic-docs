@@ -261,7 +261,7 @@ You should see the following output:
 
 ## Explaining the Contract Functions
 
-The `OptimisticDepositBox` [contract code](https://github.com/UMAprotocol/protocol/blob/master/packages/core/contracts/financial-templates/demo/OptimisticDepositBox.sol) shows how to interact with the Oracle.
+The `OptimisticDepositBox` [contract code](https://github.com/UMAprotocol/dev-quickstart/blob/main/contracts/OptimisticDepositBox.sol) shows how to interact with the Oracle.
 
 The `constructor` function includes a `_finderAddress` argument for the UMA `Finder` contract, which maintains a registry of the `OptimisticOracle` address, approved collateral and price identifier whitelists, and other important contract addresses.
 
